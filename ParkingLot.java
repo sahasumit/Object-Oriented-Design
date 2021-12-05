@@ -98,33 +98,65 @@ abstract class ParkingSpot {
   }
 }
 
-public class HandicappedSpot extends ParkingSpot {
+class HandicappedSpot extends ParkingSpot {
   public HANDICAPPED() {
     super(ParkingSpotType.HANDICAPPED);
   }
 }
 
-public class CompactSpot extends ParkingSpot {
+class CompactSpot extends ParkingSpot {
   public CompactSpot() {
     super(ParkingSpotType.COMPACT);
   }
 }
 
-public class LargeSpot extends ParkingSpot {
+class LargeSpot extends ParkingSpot {
   public LargeSpot() {
     super(ParkingSpotType.LARGE);
   }
 }
 
-public class MotorbikeSpot extends ParkingSpot {
+class MotorbikeSpot extends ParkingSpot {
   public MotorbikeSpot() {
     super(ParkingSpotType.MOTORBIKE);
   }
 }
 
-public class ElectricSpot extends ParkingSpot {
+class ElectricSpot extends ParkingSpot {
   public ElectricSpot() {
     super(ParkingSpotType.ELECTRIC);
+  }
+}
+
+abstract class Vehicle{
+  private String licenseNumber;
+  private final VehicleType type;
+  private ParkingTicket ticket;
+
+  public Vehicle(VehicleType type) {
+    this.type = type;
+  }
+
+  public void assignTicket(ParkingTicket ticket) {
+    this.ticket = ticket;
+  }
+}
+
+class Car extends Vehicle{
+  public car() {
+    super(VehicleType.CAR);
+  }
+}
+
+class Van extends Vehicle{
+  public Van() {
+    super(VehicleType.VAN);
+  }
+}
+
+class Truck extends Vehicle{
+  public Truck() {
+    super(VehicleType.Truck);
   }
 }
 
