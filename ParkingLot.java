@@ -75,6 +75,59 @@ class ParkingAttendant extends Account {
   public bool processTicket(String ticketNumber);
 }
 
+abstract class ParkingSpot {
+  private string number;
+  private boolean free;
+  private Vehiccle vehicle;
+  private final ParkingSpotType type;
+
+  public boolean IsFree();
+
+  public ParkingSpot(ParkingSpotType type){
+    this.type = type;
+  }
+
+  public boolen assignVehicle(vehicle vehicle) {
+    this.vehicle = vehicle;
+    free = false;
+  }
+
+  public boolean removeVehicle() {
+    this.vehicle = null;
+    free = true;
+  }
+}
+
+public class HandicappedSpot extends ParkingSpot {
+  public HANDICAPPED() {
+    super(ParkingSpotType.HANDICAPPED);
+  }
+}
+
+public class CompactSpot extends ParkingSpot {
+  public CompactSpot() {
+    super(ParkingSpotType.COMPACT);
+  }
+}
+
+public class LargeSpot extends ParkingSpot {
+  public LargeSpot() {
+    super(ParkingSpotType.LARGE);
+  }
+}
+
+public class MotorbikeSpot extends ParkingSpot {
+  public MotorbikeSpot() {
+    super(ParkingSpotType.MOTORBIKE);
+  }
+}
+
+public class ElectricSpot extends ParkingSpot {
+  public ElectricSpot() {
+    super(ParkingSpotType.ELECTRIC);
+  }
+}
+
 class ParkingLot{
   public static void main(String args[]) {
     System.out.println("Design a parking lot");
